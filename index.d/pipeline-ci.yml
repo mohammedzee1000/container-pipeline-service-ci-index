@@ -1,0 +1,33 @@
+Projects:
+    - id: 1
+      app-id: pipeline-ci
+      job-id: python
+      git-url: https://github.com/mohammedzee1000/container-pipeline-service-ci-projects
+      git-path: projects/functional/success/main
+      git-branch: master
+      target-file: Dockerfile.test
+      desired-tag: latest
+      notify-email: mohammed.zee1000@gmail.com
+      depends-on: centos/centos:7
+
+    - id: 2
+      app-id: pipeline-ci
+      job-id: invalid_target_file
+      git-url: https://github.com/mohammedzee1000/container-pipeline-service-ci-projects
+      git-path: projects/functional/failure/invalid_target_file
+      git-branch: master
+      target-file: Dockerfile.idontknow
+      desired-tag: latest
+      notify-email: mohammed.zee1000@gmail.com
+      depends-on: centos/centos:7
+
+    - id: 3
+      app-id: pipeline-ci
+      job-id: missing_cccp_yml
+      git-url: https://github.com/mohammedzee1000/container-pipeline-service-ci-projects
+      git-path: projects/functional/failure/missing_cccp_yml
+      git-branch: master
+      target-file: Dockerfile
+      desired-tag: latest
+      notify-email: mohammed.zee1000@gmail.com
+      depends-on: centos/centos:7
